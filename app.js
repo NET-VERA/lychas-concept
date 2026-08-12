@@ -626,7 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let newLeft = initialLeft + deltaX;
         let newTop = initialTop + deltaY;
 
-        // 1. BOUNDARY CHECK: Do not allow dragging above top edge (Navbar height margin)
+        // 1. BOUNDARY CHECK Do not allow dragging above top edge (Navbar height margin)
         const minTop = 70; 
         const maxTop = window.innerHeight - container.offsetHeight - 15;
         const minLeft = 10;
