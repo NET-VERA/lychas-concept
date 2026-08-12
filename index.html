@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyncha's Concept | Premium Beauty Brand</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LUXURY INTRO / LOADING SCREEN -->
+<div id="loading-screen">
+    <div class="loading-wrapper">
+        <h1 class="loading-logo">Lynch's Concept</h1>
+        <div class="loading-tagline">BEAUTY • CONFIDENCE • ELEGANCE</div>
+    </div>
+</div>
+
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="logo"><img src="img/logo.jpg" alt="brand logo"></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">🌙</button>
+            <button class="cart-icon-btn" id="cartOpenBtn" aria-label="Open Shopping Cart">
+                🛒<span class="cart-badge" id="cartBadgeCount">0</span>
+            </button>
+            <a href="#booking" class="btn-premium nav-btn-book">Book Now</a>
+            <button class="hamburger" id="hamburgerMenu" aria-label="Menu Toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+<!-- HERO SECTION -->
+<section id="home" class="hero">
+    <div class="hero-content" id="heroContent">
+        <h1 class="hero-title">Welcome to Lycha’s Concept</h1>
+        <div class="hero-tagline">BEAUTY • CONFIDENCE • ELEGANCE</div>
+        <p class="hero-desc">Discover professional makeup, wigs, beauty enhancement and beautiful accessories designed to help you look and feel your best.</p>
+        <div class="hero-buttons">
+            <a href="#booking" class="btn-premium">Book An Appointment</a>
+            <a href="#services" class="btn-outline">Explore Services</a>
+        </div>
+    </div>
+</section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services reveal">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid" id="servicesGrid">
+            <!-- Card 1 -->
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop" alt="Professional Makeup Application">
+                </div>
+                <div class="service-info">
+                    <h3>Makeup</h3>
+                    <p>Flawless transformations tailored elegantly for glam events, bridal registries, and everyday signature looks.</p>
+                    <div class="service-actions">
+                        <button class="btn-outline" onclick="openServiceModal('makeup')">Learn More</button>
+                        <a href="#booking" class="btn-premium">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=600&auto=format&fit=crop" alt="Premium Wigs and Hair Sprays">
+                </div>
+                <div class="service-info">
+                    <h3>Wigs / Sprays</h3>
+                    <p>Luxurious hair installations, luxury unit revamps, and customized dynamic melting hair sprays.</p>
+                    <div class="service-actions">
+                        <button class="btn-outline" onclick="openServiceModal('wigs')">Learn More</button>
+                        <a href="#booking" class="btn-premium">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=600&auto=format&fit=crop" alt="Premium Beauty Enhancement Skin Treatment">
+                </div>
+                <div class="service-info">
+                    <h3>Beauty Enhancement</h3>
+                    <p>Advanced non-invasive beauty solutions, lash extensions, microblading, and custom glowing skin services.</p>
+                    <div class="service-actions">
+                        <button class="btn-outline" onclick="openServiceModal('beauty')">Learn More</button>
+                        <a href="#booking" class="btn-premium">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="service-card">
+                <div class="service-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=600&auto=format&fit=crop" alt="Luxury Beauty Accessories Collection">
+                </div>
+                <div class="service-info">
+                    <h3>Accessories</h3>
+                    <p>Curated collections of premium jewelry, luxury hair bands, bags, and essential styling artifacts.</p>
+                    <div class="service-actions">
+                        <button class="btn-outline" onclick="openServiceModal('accessories')">Learn More</button>
+                        <a href="#shop" class="btn-premium">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICE DETAIL MODAL (REUSABLE) -->
+    <div id="serviceModal" class="overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeServiceModal()">&times;</button>
+            <h3 id="modalServiceTitle" style="margin-bottom:1rem; text-transform:uppercase; color:var(--accent-gold);">Service</h3>
+            <p id="modalServiceDesc" style="color:var(--text-secondary); margin-bottom:1.5rem;"></p>
+            <a href="#booking" class="btn-premium" onclick="closeServiceModal()">Secure Appointment</a>
+        </div>
+    </div>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="gallery reveal">
+        <h2 class="section-title">The Gallery Portfolio</h2>
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+            <button class="filter-btn" onclick="filterGallery('makeup', this)">Makeup</button>
+            <button class="filter-btn" onclick="filterGallery('wigs', this)">Wigs</button>
+            <button class="filter-btn" onclick="filterGallery('beauty', this)">Beauty</button>
+            <button class="filter-btn" onclick="filterGallery('accessories', this)">Accessories</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Dynamic Injection -->
+        </div>
+    </section>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox" class="overlay" onclick="closeLightbox(event)">
+        <button class="close-btn" onclick="closeLightbox(event)">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" onclick="changeLightboxImage(-1, event)">&#10094;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" class="lightbox-img" src="" alt="View Portfolio Piece">
+        </div>
+        <button class="lightbox-arrow lightbox-next" onclick="changeLightboxImage(1, event)">&#10095;</button>
+    </div>
+
+    <!-- ACCESSORIES SHOP SECTION -->
+    <section id="shop" class="shop reveal">
+        <h2 class="section-title">Accessories Boutique</h2>
+        <div class="shop-controls">
+            <div class="search-box">
+                <input type="text" id="productSearchInput" placeholder="Search accessories...">
+            </div>
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+                <button class="filter-btn" onclick="filterProducts('Earrings', this)">Earrings</button>
+                <button class="filter-btn" onclick="filterProducts('Necklaces', this)">Necklaces</button>
+                <button class="filter-btn" onclick="filterProducts('Bracelets', this)">Bracelets</button>
+                <button class="filter-btn" onclick="filterProducts('Bags', this)">Bags</button>
+                <button class="filter-btn" onclick="filterProducts('Hair Accessories', this)">Hair</button>
+            </div>
+        </div>
+        <div class="shop-grid" id="shopGrid">
+            <!-- Dynamic Products Injection -->
+        </div>
+    </section>
+
+    <!-- SHOPPING CART SIDE DRAWER -->
+    <div id="cartOverlay" class="overlay" style="justify-content: flex-end; padding:0;" onclick="closeCartDrawer(event)">
+        <div class="cart-drawer" id="cartDrawer" onclick="event.stopPropagation()">
+            <div class="cart-header">
+                <h3>Shopping Bag</h3>
+                <button style="font-size:1.5rem;" onclick="closeCartDrawer(null)">&times;</button>
+            </div>
+            <div class="cart-items-container" id="cartItemsContainer">
+                <!-- Dynamic Cart Items Grid -->
+            </div>
+            <div class="cart-footer" id="cartFooterSection">
+                <!-- Dynamic Summary & Checkout Controls -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION & WHY CHOOSE US -->
+    <section id="about" class="about reveal">
+        <h2 class="section-title">About Our Brand</h2>
+        <div class="about-wrapper">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" alt="About Lycha
+                's Concept Executive Presentation">
+            </div>
+            <div class="about-text">
+                <h3>Lycha’s Concept</h3>
+                <p>We believe beauty is an architectural canvas of individual expression. Our brand bridges absolute sophistication with world-class artistry, ensuring every customer walks away transformed into their most confident self.</p>
+                <p>From clean, precise cosmetic applications to highly tailored luxury wig styling, we prioritize quality, elite product formulations, and exceptional attention to detail.</p>
+            </div>
+        </div>
+
+        <div class="why-choose-us">
+            <div class="feature-item">
+                <span class="feature-icon">👑</span>
+                <h4>Elite Artistry</h4>
+                <p>Highly qualified makeup and aesthetic specialists.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✨</span>
+                <h4>Premium Selection</h4>
+                <p>Grade-A hair units and high-durability luxury accessories.</p>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💎</span>
+                <h4>Tailored Experience</h4>
+                <p>Individual aesthetic consults matching your lifestyle structure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER REVIEWS (TESTIMONIAL SLIDER) -->
+    <section class="reviews reveal">
+        <h2 class="section-title">Client Experiences</h2>
+        <div class="reviews-slider-container" id="reviewsContainer">
+            <!-- Dynamic Review Slides Injection -->
+        </div>
+        <div class="slider-nav">
+            <button class="slider-arrow" onclick="moveReviewSlide(-1)">&#10094;</button>
+            <button class="slider-arrow" onclick="moveReviewSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- APPOINTMENT BOOKING SECTION -->
+    <section id="booking" class="booking reveal">
+        <h2 class="section-title">Schedule An Appointment</h2>
+        <div class="booking-form-wrapper">
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="bookingName">Full Name</label>
+                    <input type="text" id="bookingName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="bookingPhone">Phone Number</label>
+                    <input type="tel" id="bookingPhone" placeholder="Enter your mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="bookingService">Select Service</label>
+                    <select id="bookingService">
+                        <option value="">-- Choose a Service --</option>
+                        <option value="Makeup">Makeup Styling</option>
+                        <option value="Wigs / Sprays">Wigs Consultation & Treatment</option>
+                        <option value="Beauty Enhancement">Advanced Beauty Enhancement</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingDate">Preferred Date</label>
+                        <input type="date" id="bookingDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Preferred Time</label>
+                        <input type="time" id="bookingTime">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookingMessage">Additional Message</label>
+                    <textarea id="bookingMessage" rows="4" placeholder="Share specific details about your requested look..."></textarea>
+                </div>
+                <button type="submit" class="btn-premium">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT, LOCATION & SOCIAL CHANNELS -->
+    <section id="contact" class="contact reveal">
+        <h2 class="section-title">Connect With Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <h4>WhatsApp</h4>
+                    <p>09067939264</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Email Address</h4>
+                    <p>lynch's 9@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Studio Hours</h4>
+                    <p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Special Bookings Only</p>
+                </div>
+                <div class="contact-actions">
+                    <button class="btn-premium" onclick="window.open('https://wa.me/2349067939264', '_blank')">Chat On WhatsApp</button>
+                    <a href="mailto:abigaillivinus9@gmail.com" class="btn-outline">Send Email</a>
+                </div>
+            </div>
+
+            <div class="contact-location">
+                <h3>Our Location</h3>
+                <div class="map-placeholder">
+                    <span>📍 i will add Your business Address here</span>
+                    <p style="font-size:0.8rem; margin-top:0.5rem; max-width:280px;">The map connection and exact geographic street index will align here once provided.</p>
+                </div>
+                <button class="btn-outline" style="width:100%;" onclick="window.open('https://maps.google.com', '_blank')">Get Directions</button>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-icon" aria-label="TikTok">TK</a>
+                    <a href="https://wa.me/2349067939264" class="social-icon" aria-label="WhatsApp">WA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BACK TO TOP BUTTON -->
+    <button id="back-to-top" aria-label="Return to top of page">↑</button>
+
+    <!-- GLOBAL TOAST NOTIFICATION STACK -->
+    <div id="toast-container"></div>
+
+    <!-- PREMIUM FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>Lycha’s Concept</h2>
+                <p>Beauty • Confidence • Elegance</p>
+                <p style="margin-top:1rem; max-width:250px;">Transforming personal aesthetics with custom tailored professional beauty programs and premium boutique styling items.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p>📞 09067939264</p>
+                <p>✉️ abigaillivinus9@gmail.com</p>
+                <p>📍 Studio Address, Nigeria</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Lycha’s Concept. All Rights Reserved.
+            build by net-vera
+        </div>
+    </footer>
+    
+    
+<!-- DRAGGABLE FLOATING WHATSAPP BUTTON -->
+<div id="whatsappContainer" class="whatsapp-float-container">
+    <a href="https://wa.me/2349067939264?text=Hello%20Lycha’s%20Concept!%20I’m%20visiting%20your%20website%20and%20would%20like%20to%20make%20an%20enquiry." 
+       id="whatsappBtn"
+       target="_blank" 
+       aria-label="Chat on WhatsApp">
+        <!-- Official WhatsApp SVG Icon -->
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path fill="#FFFFFF" d="M16 2a13 13 0 0 0-11 19.8L3 29l7.3-1.9A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.3 1.1 1.1-4.2-.3-.4a10.8 10.8 0 1 1 9.4 5.2zm5.9-8.1c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1.1-1 1.3c-.2.2-.4.2-.7 0a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.4.3-.5.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.4 1.4 3.6c.2.3 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .8.8.3 1.6.2 2.2.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8 0-.1-.3-.2-.6-.3z"/>
+        </svg>
+    </a>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
