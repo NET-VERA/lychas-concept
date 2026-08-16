@@ -1,6 +1,6 @@
 // --- DATA OBJECTS & APPLICATION STATE ---
 const PRODUCTS_DATA = [
-    { id: 1, name: "Elegant Crystal Earrings", category: "Earrings", price: 8000, image: "img/bg.jpg", desc: "Premium quality luxury drop earrings with high-grade reflective crystal simulation." },
+    { id: 1, name: "Elegant Crystal Earrings", category: "Earrings", price: 8000, image: "img/Earrings/1.jpg", desc: "Premium quality luxury drop earrings with high-grade reflective crystal simulation." },
     { id: 2, name: "Gold Chain Choker Necklace", category: "Necklaces", price: 12000, image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=400&auto=format&fit=crop", desc: "Polished multi-layer 18k rose gold plated style necklace designed for formal necklines." },
     { id: 3, name: "Classic Pearl Statement Bracelet", category: "Bracelets", price: 9500, image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=400&auto=format&fit=crop", desc: "Stunning elastic statement piece structured with high luster cream pearls." },
     { id: 4, name: "Luxury Leather Handbag", category: "Bags", price: 35000, image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=400&auto=format&fit=crop", desc: "Premium sleek layout bag with gold finish lock clips and compact organizational slots." },
@@ -20,7 +20,7 @@ const GALLERY_DATA = [
 const REVIEWS_DATA = [
     { name: "Abigail Livinus", score: 5, comment: "I absolutely loved my makeup. The result was beautiful and lasted through the entire evening celebration!" },
     { name: "Chioma N.", score: 5, comment: "The custom frontal unit revamp was phenomenal. Service delivery is premium and timely!" },
-    { name: "Funmi A.", score: 5, comment: "Beautiful premium earrings and high attention to customer service. Will keep ordering from Lynch's Concept." }
+    { name: "Funmi A.", score: 5, comment: "Beautiful premium earrings and high attention to customer service. Will keep ordering from Lych's Concept." }
 ];
 
 const SERVICE_DETAILS = {
@@ -230,7 +230,7 @@ function renderGalleryItems() {
     filteredItems.forEach((item, index) => {
         const itemEl = document.createElement("div");
         itemEl.className = "gallery-item";
-        itemEl.innerHTML = `<img src="${item.src}" alt="Lynch Portfolio Piece representing ${item.type}">`;
+        itemEl.innerHTML = `<img src="${item.src}" alt="Lych's Portfolio Piece representing ${item.type}">`;
         itemEl.onclick = () => openLightbox(index, filteredItems);
         grid.appendChild(itemEl);
     });
@@ -323,7 +323,7 @@ function filterProducts(category, buttonElement) {
 
 // 8. SHOPPING CART CORE ARCHITECTURE & 11. LOCAL STORAGE LAYERS
 function initializeCartSystem() {
-    const savedCart = localStorage.getItem("lynchs_concept_cart");
+    const savedCart = localStorage.getItem("lychs_concept_cart");
     if(savedCart) {
         try { cartState = JSON.parse(savedCart); } catch(e) { cartState = []; }
     }
@@ -344,7 +344,7 @@ function openCartDrawerProgrammatically() {
 }
 
 function saveCartStateToStorage() {
-    localStorage.setItem("lynchs_concept_cart", JSON.stringify(cartState));
+    localStorage.setItem("lychs_concept_cart", JSON.stringify(cartState));
 }
 
 // 9. CART DRAWER LAYOUT RENDER & 10. AUTOMATIC CALCULATION MECHANISM
@@ -456,7 +456,7 @@ function clearAllCartItems() {
 function dispatchOrderToWhatsApp() {
     if(cartState.length === 0) return;
 
-    let messageBody = "Hello Lynch’s Concept 👋\n\nI would like to place an order.\n\nOrder Details:\n";
+    let messageBody = "Hello Lych’s Concept 👋\n\nI would like to place an order.\n\nOrder Details:\n";
     let computedTotalValue = 0;
 
     cartState.forEach(item => {
@@ -495,7 +495,7 @@ function setupFormValidations() {
         if(!dateInput) { showToast("⚠ Please select a date.", true); return; }
         if(!timeInput) { showToast("⚠ Please select a time.", true); return; }
 
-        let bookingWhatsAppString = `Hello Lynch’s Concept 👋\n\nI would like to book an appointment.\n\n`;
+        let bookingWhatsAppString = `Hello Lych’s Concept 👋\n\nI would like to book an appointment.\n\n`;
         bookingWhatsAppString += `Name: ${nameInput}\n`;
         bookingWhatsAppString += `Phone: ${phoneInput}\n`;
         bookingWhatsAppString += `Service: ${serviceSelect}\n`;
@@ -648,7 +648,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const buttonCenterX = rect.left + rect.width / 2;
 
         // 2. BOUNDARY CHECK: Don't stay stuck in screen center horizontally (Snaps to left or right margin)
-        const centerZoneWidth = window.innerWidth * 0.3; // Center 30% area
+        const centerZoneWidth = window.innerWidth * 1; // Center 30% area
         if (Math.abs(buttonCenterX - screenCenterX) < centerZoneWidth / 2) {
             const targetLeft = buttonCenterX < screenCenterX ? 15 : (window.innerWidth - rect.width - 15);
             container.style.transition = "left 0.3s ease, top 0.3s ease";
